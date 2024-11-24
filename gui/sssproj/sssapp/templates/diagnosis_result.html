@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnosis Result</title>
+</head>
+<body>
+    <h1>Diagnosis Result</h1>
+    <p><strong>Age:</strong> {{ patient.age }}</p>
+    <p><strong>Sex:</strong> {{ patient.sex }}</p>
+    <p><strong>CRP:</strong> {{ patient.crp }}</p>
+    <p><strong>HGB:</strong> {{ patient.hgb }}</p>
+    <p><strong>MCV:</strong> {{ patient.mcv }}</p>
+    <p><strong>PLT:</strong> {{ patient.plt }}</p>
+    <p><strong>RBC:</strong> {{ patient.rbc }}</p>
+    <p><strong>WBC:</strong> {{ patient.wbc }}</p>
+    <h2><strong>Diagnosis:</strong> {{ patient.diagnosis }}</h2>
+    <a href="{% url 'diagnose_patient' %}">Go back</a>
+</body>
+</html>
