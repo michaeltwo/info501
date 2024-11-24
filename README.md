@@ -4,9 +4,9 @@
 
 ## 4 algorithms
 
-Xgboost
-Random Forest
-KNN
+Xgboost,
+Random Forest,
+KNN,
 SVM
 
 ## Columns used
@@ -19,5 +19,5 @@ SVM
 ['Id', 'Center','Set','Sender','Episode','Time','TargetIcu','SecToIcu','PCT']
 ```
 
-## preprocessing process
-![image](https://github.com/michaeltwo/../../../images/preprocessing.png)
+## Preprocessing process
+![image](https://github.com/michaeltwo/images/preprocessing.png)
