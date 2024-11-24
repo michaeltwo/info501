@@ -1,1 +1,23 @@
 # info501
+
+## Sepsis Screening System based Complete Blood Count Lab Results using Data Mining Techniques
+
+## 4 algorithms
+
+Xgboost
+Random Forest
+KNN
+SVM
+
+## Columns used
+```
+['Age','Sex','CRP','HGB','MCV','PLT','RBC','WBC',]
+```
+
+## Columns Dropped
+```
+['Id', 'Center','Set','Sender','Episode','Time','TargetIcu','SecToIcu','PCT']
+```
+
+## preprocessing process
+![image](https://github.com/michaeltwo/../../../images/preprocessing.png)
