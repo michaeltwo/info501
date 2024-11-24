@@ -20,4 +20,4 @@ SVM
 ```
 
 ## Preprocessing process
-![image](https://github.com/michaeltwo/images/preprocessing.png)
+![image](https://github.com/michaeltwo/info501/images/preprocessing.png)
