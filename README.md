@@ -11,7 +11,7 @@ SVM
 
 ## Columns used
 ```
-['Age','Sex','CRP','HGB','MCV','PLT','RBC','WBC',]
+['Age','Sex','HGB','MCV','PLT','RBC','WBC',]  'CRP' is optional 
 ```
 
 ## Columns Dropped
