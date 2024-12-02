@@ -3,6 +3,7 @@ from .forms import PatientDataForm
 from .model import model
 from .models import PatientData
 import numpy as np
+import xgboost
 
 def predict(request):
     result = None
