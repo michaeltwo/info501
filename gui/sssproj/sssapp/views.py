@@ -29,7 +29,7 @@ def predict(request):
             prediction = model.predict(input_data)
             accuracy = model.score(input_data, prediction)  # Adjust as needed
 
-            result = 'Yes' if prediction[0] == 1 else 'No'
+            result = 'Sepsis' if prediction[0] == 1 else 'Control'
 
             # Save the input and output to the database
             PatientData.objects.create(

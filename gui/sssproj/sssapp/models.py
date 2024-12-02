@@ -8,7 +8,7 @@ class PatientData(models.Model):
     plt = models.FloatField()
     rbc = models.FloatField()
     wbc = models.FloatField()
-    result = models.CharField(max_length=3)  # 'Yes' or 'No'
+    result = models.CharField(max_length=10)  # 'sepsis' or 'Control'
     accuracy = models.FloatField(null=True, blank=True)
 
     def __str__(self):
