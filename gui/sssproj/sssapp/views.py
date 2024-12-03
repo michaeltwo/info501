@@ -28,13 +28,13 @@ def predict(request):
             # Prepare the input for the model
             sex_numeric = 1 if sex == 'M' else 0
             input_data = np.array([[age, sex_numeric, hgb, mcv, plt, rbc, wbc]])
-            df=pd.DataFrame(input_data,columns=['Age', 'Sex', 'HGB', 'MCV', 'PLT', 'RBC', 'WBC'])
-            file_path_scaler = os.path.join(settings.BASE_DIR, 'sssapp', 'static', 'scaler.pkl')
-            input_data_rescalled=rescale_gui_input(df,file_path_scaler)
-            print(input_data_rescalled)
+            # df=pd.DataFrame(input_data,columns=['Age', 'Sex', 'HGB', 'MCV', 'PLT', 'RBC', 'WBC'])
+            # file_path_scaler = os.path.join(settings.BASE_DIR, 'sssapp', 'static', 'scaler.pkl')
+            # input_data_rescalled=rescale_gui_input(df,file_path_scaler)
+            # print(input_data_rescalled)
 
             # Make prediction
-            prediction = model.predict(input_data_rescalled)
+            prediction = model.predict(input_data)
             print(prediction)
             # accuracy = model.score(input_data, prediction)  # Adjust as needed
 
