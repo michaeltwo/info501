@@ -1,12 +1,10 @@
-import joblib
-import pandas as pd
+import numpy as np
+from sklearn.preprocessing import MinMaxScaler
+def rescale_gui_input(data):
+    data_reshaped = np.array(data).reshape(-1, 1)
+    scaler = MinMaxScaler(feature_range=(0, 1))
+    rescaled_data = scaler.fit_transform(data_reshaped)
 
-def rescale_gui_input(df, file_path):
-    df = df.copy()
-    scaler = joblib.load(file_path)
-    X = scaler.fit_transform(df)
-    X_df = pd.DataFrame(X, columns=df.columns)
-
-    return X_df
+    return rescaled_data.flatten()
 
 
