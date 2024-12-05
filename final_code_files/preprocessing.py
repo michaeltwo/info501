@@ -45,7 +45,7 @@ def rescale_dataset(df):
     scaler = MinMaxScaler()
     X = scaler.fit_transform(X_df)
     X_df = pd.DataFrame(X, columns=X_df.columns)
-    joblib.dump(scaler, 'scaler.pkl')
+    # joblib.dump(scaler, 'scaler.pkl')
 
     # print(f'Index check before adding Diagnosis: {X_df.index.equals(y.index)}')
 

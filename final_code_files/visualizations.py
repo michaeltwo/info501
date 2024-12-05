@@ -55,7 +55,7 @@ def plot_roc_curves(df1, df2, model_metrics):
     plt.ylim([0.0, 1.05])
     plt.xlabel('False Positive Rate')
     plt.ylabel('True Positive Rate')
-    plt.title('Receiver Operating Characteristic (ROC) for XgBoost')
+    plt.title('Receiver Operating Characteristic (ROC)')
     plt.legend(loc='lower right')
     plt.grid(alpha=0.3)
     plt.show()
