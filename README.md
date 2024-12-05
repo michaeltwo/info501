@@ -7,7 +7,7 @@
 ['Age','Sex','HGB','MCV','PLT','RBC','WBC',]  'CRP' is optional 
 ```
 
-#### Columns Dropped
+#### Columns dropped
 ```
 ['Id','Set','Sender','Episode','Time','TargetIcu','SecToIcu','PCT']，'Center' is used to split data
 ```
