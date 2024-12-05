@@ -17,36 +17,20 @@ def plot_confusion_matrix(model_metrics):
     cm = model_metrics.get("confusion_matrix")
     class_labels=["Control", "Sepsis"]
 
-    if cm is not None:
-        
-        plt.figure(figsize=(8, 6))
-        sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", cbar=False, 
-                    xticklabels=class_labels, 
-                    yticklabels=class_labels)
-        plt.title("Confusion Matrix")
-        plt.xlabel("Predicted Labels")
-        plt.ylabel("True Labels")
-        plt.show()
-    else:
-        print("Confusion matrix is not available in the model metrics.")
+    plt.figure(figsize=(8, 6))
+    sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", cbar=False, 
+                xticklabels=class_labels, 
+                yticklabels=class_labels)
+    plt.title("Confusion Matrix")
+    plt.xlabel("Predicted Labels")
+    plt.ylabel("True Labels")
+    plt.show()
 
 
 def plot_roc_curves(df1, df2, model_metrics):
-    """
-    Plots the ROC curves for two datasets using the same trained model.
 
-    Parameters:
-    df1 : DataFrame
-        The first dataset with features and binary target label ('Diagnosis').
-    df2 : DataFrame
-        The second dataset with features and binary target label ('Diagnosis').
-    model_metrics : dict
-        A dictionary containing the trained model and associated metrics.
-        Example: {'model': trained_model, 'roc_auc': roc_auc_score}
-    """
     model = model_metrics['model']
 
-    # Define a helper function to calculate ROC values
     def calculate_roc(df):
         X = df.drop(columns=['Diagnosis'])
         y = df['Diagnosis']
@@ -60,11 +44,9 @@ def plot_roc_curves(df1, df2, model_metrics):
         roc_auc = auc(fpr, tpr)
         return fpr, tpr, roc_auc
 
-    # Calculate ROC for both datasets
     fpr1, tpr1, roc_auc1 = calculate_roc(df1)
     fpr2, tpr2, roc_auc2 = calculate_roc(df2)
 
-    # Plot ROC curves
     plt.figure()
     plt.plot(fpr1, tpr1, color='blue', lw=2, label=f'UML ROC (AUC = {roc_auc1:.3f})')
     plt.plot(fpr2, tpr2, color='orange', lw=2, label=f'UMG ROC (AUC = {roc_auc2:.3f})')
