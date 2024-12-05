@@ -1,23 +1,12 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[55]:
-
-
-# IMPORT PACKAGES
+#%% PACKAGE IMPORTS
 import pandas as pd
 import numpy as np
 from scipy.stats import zscore
 from sklearn.preprocessing import MinMaxScaler
+import joblib
+import seaborn as sns
 
-
-# In[56]:
-
-
-# PREPROCESSING FUNCTIONS
-
-
-# Helper Functions
+#%% PREPROCESSING HELPER FUNCTIONS
 def split_external_data(df):
     """
     df_uml = training data
@@ -56,7 +45,7 @@ def rescale_dataset(df):
     scaler = MinMaxScaler()
     X = scaler.fit_transform(X_df)
     X_df = pd.DataFrame(X, columns=X_df.columns)
-
+    joblib.dump(scaler, 'scaler.pkl')
 
     # print(f'Index check before adding Diagnosis: {X_df.index.equals(y.index)}')
 
@@ -97,8 +86,6 @@ def remove_outliers(df):
 
     return df
 
-
-
 def clean(df):
     df = df.copy()
 
@@ -121,11 +108,7 @@ def clean(df):
     
     return df
 
-
-# In[57]:
-
-
-# Main Function
+#%% MAIN PREPROCESSING FUNCTION
 def preprocess(df, save_csv = False):
     df = df.copy()
     datasets = split_external_data(df)
@@ -133,7 +116,7 @@ def preprocess(df, save_csv = False):
     preprops = []
     for df in datasets:
         df = clean(df)
-        # df = remove_outliers(df)
+        df = remove_outliers(df)
         df = rescale_dataset(df)
         df = undersample_data(df)
         preprops.append(df)
@@ -149,32 +132,9 @@ def preprocess(df, save_csv = False):
     return preprops
 
 
+if __name__ == "__main__":
+    file_path = r'G:\My Drive\School\Current Classes\SSIE 548 - Healtchare Data Science\Project\Data\sbcdata.csv'
+    df = pd.read_csv(file_path)
 
-
-
-# In[58]:
-
-
-# PREPROCESS DATA
-# file_path = r'sbcdata.csv'
-# df = pd.read_csv(file_path)
-
-# #if you want the files to be saved set save_csv to true
-# df_uml, df_umg = preprocess(df, save_csv=False)
-
-
-
-# In[59]:
-
-
-# confirm preprocessing worked
-
-# print('training set preprocessing confirmation')
-# display(df_uml.Diagnosis.value_counts()) #make sure data is balance
-# display(df_uml)
-
-# print('validation set preprocessing confirmation')
-
-# display(df_umg.Diagnosis.value_counts()) #make sure data is balance
-# display(df_umg)
-
+    # to save dfs set save_csv to true
+    df_uml, df_umg = preprocess(df, save_csv=False)
