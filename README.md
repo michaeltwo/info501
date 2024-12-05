@@ -23,7 +23,7 @@ KNN,
 SVM
 
 ## Interpretation
-#### confusion matrix, roc-auc
+#### accuracy, confusion matrix, roc-auc, etc.
 
 ## GUI Instructions
 #### download code from gui folder
