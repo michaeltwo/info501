@@ -9,7 +9,7 @@
 
 #### Columns Dropped
 ```
-['Id', 'Center','Set','Sender','Episode','Time','TargetIcu','SecToIcu','PCT']
+['Id','Set','Sender','Episode','Time','TargetIcu','SecToIcu','PCT']，'Center' is used to split data
 ```
 
 #### Preprocessing process
